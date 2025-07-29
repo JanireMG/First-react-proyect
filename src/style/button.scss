@@ -1,0 +1,7 @@
+@use "./mixins";
+
+.btn {
+  @include mixins.base-btn();
+  margin-top: 20px;
+  border-radius: 4px ;
+}

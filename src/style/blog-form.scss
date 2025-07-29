@@ -1,0 +1,13 @@
+@use './mixins';
+
+.blog-form-wrapper{
+    @include mixins.base-grid();
+    grid-template-columns: 1fr;
+    padding: 42px;
+    
+
+    @include mixins.input-element();
+    input{
+        margin-bottom: 0px;
+    }
+}

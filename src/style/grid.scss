@@ -1,0 +1,11 @@
+@use './mixins';
+
+.one-column{
+    @include mixins.base-grid();
+    grid-template-columns: 1fr;
+}
+
+.two-column{
+    @include mixins.base-grid();
+    grid-template-columns: 1fr 1fr;
+}
