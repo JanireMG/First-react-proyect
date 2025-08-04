@@ -82,11 +82,7 @@ module.exports = webpackMerge(webpackCommon, {
       disableDotRule: true
     },
     watchOptions: {
-      poll: 1000,
-      ignored: [
-        /node_modules/,
-        /^(?!.*(my-first-react-project)).*$/,
-      ]
+      ignored: /node_modules/
     },
     overlay: {
       warnings: true,
