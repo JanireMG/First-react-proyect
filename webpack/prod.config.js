@@ -9,7 +9,7 @@ const DefinePlugin = require("webpack/lib/DefinePlugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const LoaderOptionsPlugin = require("webpack/lib/LoaderOptionsPlugin");
 
 module.exports = webpackMerge(webpackCommon, {
@@ -33,35 +33,36 @@ module.exports = webpackMerge(webpackCommon, {
     rules: [
       {
         test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [
-            {
-              loader: "css-loader",
-              options: {
-                sourceMap: true,
-                importLoaders: 2
-              }
-            },
-            {
-              loader: "postcss-loader",
-              options: {
-                config: {
-                  path: path.resolve(__dirname, "postcss.config.js")
-                },
-                sourceMap: true
-              }
-            },
-            {
-              loader: "sass-loader",
-              options: {
-                outputStyle: "expanded",
-                sourceMap: true,
-                sourceMapContents: true
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              importLoaders: 2
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              config: {
+                path: path.resolve(__dirname, "postcss.config.js")
+              },
+              sourceMap: true
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              outputStyle: "expanded",
+              sourceMap: true,
+              sourceMapContents: true,
+              sassOptions: {
+                includePaths: [path.resolve(__dirname, "../src")]
               }
             }
-          ]
-        })
+          }
+        ]  
       }
     ]
   },
@@ -101,7 +102,10 @@ module.exports = webpackMerge(webpackCommon, {
         NODE_ENV: '"production"'
       }
     }),
-    new ExtractTextPlugin("[name]-[chunkhash].min.css"),
+    new MiniCssExtractPlugin({
+      filename: "[name]-[chunkhash].min.css",
+    }),
+
     new LoaderOptionsPlugin({
       options: {
         context: "/",
