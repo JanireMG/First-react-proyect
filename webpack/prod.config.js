@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const DefinePlugin = require("webpack/lib/DefinePlugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const LoaderOptionsPlugin = require("webpack/lib/LoaderOptionsPlugin");
 
@@ -85,16 +85,12 @@ module.exports = webpackMerge(webpackCommon, {
         minifyURLs: true
       }
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "../static"),
-          globOptions: {
-            ignore: ["**/index.html", "**/favicon.ico"],
-          },
-        },
-      ],
-    }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, "../static"),
+        ignore: ["**/index.html", "**/favicon.ico"],
+      },
+    ]),
 
     new CleanWebpackPlugin(),
     new DefinePlugin({
