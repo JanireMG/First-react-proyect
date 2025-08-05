@@ -82,8 +82,7 @@ export default class App extends Component {
   authorizedPages() {
     return [
       <Route key="portfolio-manager" path='/portfolio-manager' component={PortfolioManager} />
-
-    ]
+    ];
   }
 
   render() {
@@ -109,9 +108,7 @@ export default class App extends Component {
                   handleSuccessfulLogin={this.handleSuccessfulLogin}
                   handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
                   />
-                )
-
-                }
+                )}
               />
 
               <Route path='/about-me' component={About} />
@@ -124,15 +121,28 @@ export default class App extends Component {
                 )}
               />
 
-              <Route path='/b/:slug' component={BlogDetail} />
-              {this.state.loggedInStatus === "LOGGED_IN" ? this.authorizedPages() : null}
-              <Route exact path='/portfolio/:slug' component={PortfolioDetail} />
+              <Route
+                path="/b/:slug"
+                render={props => (
+                  <BlogDetail
+                    {...props}
+                    loggedInStatus={this.state.loggedInStatus}
+                  />
+                )}
+              />
+
+              {this.state.loggedInStatus === "LOGGED_IN"
+                ? this.authorizedPages()
+                : null}
+              <Route
+                exact
+                path="/portfolio/:slug"
+                component={PortfolioDetail}
+              />
               <Route component={NoMatch} />
             </Switch>
           </div>
         </Router>
-
-    
       </div>
     );
   }

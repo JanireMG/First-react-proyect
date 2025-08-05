@@ -5,10 +5,13 @@
 @use "./button";
 @use "./grid";
 @use "./navigation";
+@use "./layouts";
+@use "./home";
 @use "./portfolio";
 @use  "./portfolio-manager";
 @use "./portfolio-form";
 @use "./portfolio-sidebar";
+@use "./portfolio-detail";
 @use "./auth";
 @use "./blog";
 @use "./loaders";
