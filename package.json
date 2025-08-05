@@ -4,7 +4,7 @@
   "description": "A portfolio website by Janire Martinez.",
   "scripts": {
     "preinstall": "npm set audit false",
-    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server --config webpack/dev.config.js --watch",
+    "start":"node server.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
     "heroku-postbuild": "npm run build",
     "precommit": "eslint src",
