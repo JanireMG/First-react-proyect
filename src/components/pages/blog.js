@@ -51,14 +51,14 @@ class Blog extends Component {
     this.setState({
       blogModalIsOpen: false,
       blogItems: [blog].concat(this.state.blogItems)
-   })
+    });
   }
 
 
   handleModalClose(){
     this.setState({
       blogModalIsOpen: false
-    })
+    });
   }
 
   handleNewBlogClick() {
@@ -82,7 +82,12 @@ class Blog extends Component {
       currentPage: this.state.currentPage + 1
     });
 
-    axios.get(`https://jani.devcamp.space/portfolio/portfolio_blogs?page=${this.state.currentPage}`, { withCredentials: true })
+    axios
+      .get(
+        `https://jani.devcamp.space/portfolio/portfolio_blogs?page=${
+          this.state.currentPage
+        }`, 
+        { withCredentials: true })
       .then(response => {
         console.log("getting", response.data)
           this.setState({

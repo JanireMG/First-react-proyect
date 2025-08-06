@@ -14,7 +14,7 @@ export default class PortfolioContainer extends Component {
         };
 
         this.handleFilter = this.handleFilter.bind(this);
-         //Bind sirve para que el this dentro de la funcion se refiera a la clase y no al evento del boton
+        //Bind sirve para que el this dentro de la funcion se refiera a la clase y no al evento del boton
     };
 
     handleFilter(filter){
