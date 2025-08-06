@@ -1,4 +1,4 @@
-/* Filepicker CSS */
+
 .filepicker {
   font-family: sans-serif;
 }
@@ -12,7 +12,7 @@ div.filepicker {
   border: 2px dashed #C7C7C7;
 }
 
-/* Icon */
+
 .filepicker-file-icon {
   position: relative;
   display: inline-block;
@@ -310,6 +310,7 @@ div.filepicker {
   margin-left: -40px;
   background: rgba(255, 255, 255, 0.9);
   -webkit-transform: scale(1);
+  transform: scale(1);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -1685,16 +1686,7 @@ textarea {
   background: #f1f1f1;
   border-radius: 3px;
   padding: 1px 10px;
-} /**
-* Draft v0.9.1
-*
-* Copyright (c) 2013-present, Facebook, Inc.
-* All rights reserved.
-*
-* This source code is licensed under the BSD-style license found in the
-* LICENSE file in the root directory of this source tree. An additional grant
-* of patent rights can be found in the PATENTS file in the same directory.
-*/
+} 
 .DraftEditor-editorContainer,
 .DraftEditor-root,
 .public-DraftEditor-content {
