@@ -10,4 +10,9 @@
     input{
         margin-bottom: 0px;
     }
+
+    .image-uploaders {
+        @include mixins.base-grid();
+        grid-template-columns: 200px;
+    }
 }
