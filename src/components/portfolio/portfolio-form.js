@@ -3,7 +3,7 @@ import axios from "axios";
 import DropzoneComponent  from "react-dropzone-component";
 
 import '../../style/filepicker.scss';
-import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
+import "dropzone/dist/min/dropzone.min.css";
 import { max } from "moment/moment";
 
 export default class portfolioForm extends Component {
